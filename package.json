@@ -7,12 +7,13 @@
     "dev": "nodemon index.js",
     "lint": "eslint .",
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "eslint": "8.19.0",
+    "jest": "28.1.3",
     "nodemon": "2.0.18",
     "standard": "17.0.0"
   },
@@ -23,6 +24,12 @@
     "mongoose": "6.4.2"
   },
   "eslintConfig": {
-    "extends": "./node_modules/standard/eslintrc.json"
+    "extends": "./node_modules/standard/eslintrc.json",
+    "env": {
+      "jest": true
+    }
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

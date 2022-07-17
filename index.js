@@ -7,7 +7,6 @@ const logger = require('./middleware/logger')
 const notFound = require('./middleware/notFound')
 const handleErrors = require('./middleware/handleErrors')
 const Note = require('./models/Note')
-const { default: mongoose } = require('mongoose')
 
 const app = express()
 app.use(cors())
