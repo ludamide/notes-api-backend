@@ -1,6 +1,6 @@
 const { average } = require('../utils/for_testing')
 
-describe('average', () => {
+describe.skip('average', () => {
   test('of on value is the value itself', () => {
     expect(average([1])).toBe(1)
   })
