@@ -15,12 +15,12 @@ app.use(cors())
 app.use(express.json())
 app.use(logger)
 
+app.use('/api/notes', notesRouter)
+app.use('/api/users', usersRouter)
+
 app.get('/', (request, response) => {
   response.send('<h1>Hello World</h1>')
 })
-
-app.use('/api/notes', notesRouter)
-app.use('/api/users', usersRouter)
 
 app.use(notFound)
 app.use(handleErrors)
