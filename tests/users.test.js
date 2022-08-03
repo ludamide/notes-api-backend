@@ -4,16 +4,30 @@ const { server } = require('../index')
 const User = require('../models/User')
 const { api, getUsers } = require('./helpers')
 
-describe('creating a new user', () => {
-  beforeEach(async () => {
-    await User.deleteMany({})
+beforeEach(async () => {
+  await User.deleteMany({})
 
-    const passwordHash = await bcrypt.hash('pswd', 10)
-    const user = new User({ username: 'miduroot', passwordHash })
+  const passwordHash = await bcrypt.hash('pswd', 10)
+  const user = new User({ username: 'miduroot', passwordHash })
 
-    await user.save()
+  await user.save()
+})
+
+describe('get all users', () => {
+  test('returned as json', async () => {
+    await api
+      .get('/api/users')
+      .expect(200)
+      .expect('Content-Type', /application\/json/)
   })
 
+  test('returns all initial users', async () => {
+    const response = await api.get('/api/users')
+    expect(response.body).toHaveLength(1)
+  })
+})
+
+describe('creating a new user', () => {
   test('works as expected creating a fresh username', async () => {
     const usersAtStart = await getUsers()
 
