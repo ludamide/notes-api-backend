@@ -6,6 +6,7 @@ const cors = require('cors')
 
 const usersRouter = require('./controllers/users')
 const notesRouter = require('./controllers/notes')
+const loginRouter = require('./controllers/login')
 const logger = require('./middleware/logger')
 const notFound = require('./middleware/notFound')
 const handleErrors = require('./middleware/handleErrors')
@@ -15,12 +16,13 @@ app.use(cors())
 app.use(express.json())
 app.use(logger)
 
-app.use('/api/notes', notesRouter)
-app.use('/api/users', usersRouter)
-
 app.get('/', (request, response) => {
   response.send('<h1>Hello World</h1>')
 })
+
+app.use('/api/notes', notesRouter)
+app.use('/api/users', usersRouter)
+app.use('/api/login', loginRouter)
 
 app.use(notFound)
 app.use(handleErrors)

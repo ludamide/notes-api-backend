@@ -1,16 +1,8 @@
 POST http://localhost:3001/api/notes
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZWFlMDk2OTg3ZDY5ZjBiZTA0ZDU5YyIsInVzZXJuYW1lIjoibWlkdWRldiIsImlhdCI6MTY1OTgwOTk1MSwiZXhwIjoxNjYwNDE0NzUxfQ.Di45LoOXYKgNZx6Rj-Jkt9tmjTxEVGm1UCGeLJhiT6g
 
 {
-    "content": "Suscríbete a @midudev",
-    "important": true,
-    "userId": "62eae096987d69f0be04d59c"
-}
-
-###
-
-POST http://localhost:3001/api/notes
-Content-Type: application/json
-
-{
+    "content": "Utilizando el middleware del user extractor",
+    "important": true
 }

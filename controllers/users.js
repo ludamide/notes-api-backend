@@ -10,7 +10,7 @@ usersRouter.get('/', async (request, response) => {
   response.json(users)
 })
 
-usersRouter.post('/', async (request, response) => {
+usersRouter.post('/', async (request, response, next) => {
   try {
     const { body } = request
     const { username, name, password } = body
@@ -27,7 +27,7 @@ usersRouter.post('/', async (request, response) => {
     const savedUser = await user.save()
     response.status(201).json(savedUser)
   } catch (error) {
-    response.status(400).json(error)
+    next(error)
   }
 })
 
