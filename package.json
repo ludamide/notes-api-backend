@@ -7,7 +7,8 @@
     "dev": "NODE_ENV=development nodemon index.js",
     "lint": "eslint .",
     "start": "NODE_ENV=production node index.js",
-    "test": "NODE_ENV=test PORT=1234 jest --verbose --silent tests/users.test.js",
+    "start:test": "NODE_ENV=test node index.js",
+    "test": "NODE_ENV=test PORT=1234 jest --verbose --silent",
     "test:watch": "npm test -- --watch"
   },
   "author": "",
